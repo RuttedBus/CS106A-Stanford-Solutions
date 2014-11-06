@@ -313,6 +313,25 @@ public class Breakout extends GraphicsProgram {
                 ball.setColor(collider.getColor());
         }
     }
+    
+    /** Method that bounces ball of paddle, pertaining the x coordinate, not the y */
+    private void bounceOffPaddleX() {
+    	/** First condition checks if ball is going right
+    	 * Second condition checks if the middle of the ball is on the left side of the paddle, not including middle point
+    	 * of the paddle. Reverses the vx to bounce back in opposite direction if true
+    	 */
+    	if(vx > 0 && ball.getX() + BALL_RADIUS < paddle.getX() + PADDLE_WIDTH/2) {
+    		vx = -vx;
+    	}
+    	/** First condition checks if ball is moving to the right
+    	 * Second condition checks if it hits the middle or right side of the paddle to reverse the vx if true.
+    	 */
+    	else if(vx < 0 && ball.getX() + BALL_RADIUS >= paddle.getX() + PADDLE_WIDTH/2) {
+    		vx = -vx;
+    	}
+    }
+    
+    
     /** Method that updates the score, under the paddle */
     	private void createScore() {
     		/** Sets score to zero, since game has not started */
