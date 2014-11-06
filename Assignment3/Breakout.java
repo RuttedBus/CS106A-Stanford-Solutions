@@ -93,17 +93,24 @@ public class Breakout extends GraphicsProgram {
      */
         public void run() {
             resize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
-           
+            setup();
+            
             for(int timesPlayed = 0; timesPlayed < NTURNS; timesPlayed++) {
-            	setup();
+            	showStatus("Turns remaining: " + (NTURNS - timesPlayed));
+            	resetBallAndPaddle();
             	addMouseListeners();
             	waitForClick();
             	playGame();
+            	
             	if(bricksHit == (NBRICKS_PER_ROW * NBRICK_ROWS)) {
             		playerWon();
+            		showStatus("Turns remaining: " + 0);
+            		removeAll();
             		break;
             	}
             	else if(timesPlayed == 2) {
+            		removeAll();
+            		showStatus("Turns remaining: " + 0);
             		playerLost();
             	}
             }
@@ -227,7 +234,6 @@ public class Breakout extends GraphicsProgram {
                 bounceBall();
                 bounceOffObject();
                 if(ball.getY() > HEIGHT || bricksHit == NBRICK_ROWS*NBRICKS_PER_ROW) {
-                	removeAll();
                 	break;
                 }         
         }
@@ -299,6 +305,7 @@ public class Breakout extends GraphicsProgram {
              * Also does not allow player to hit with side of paddle. So, the reverse velocity y can escape the paddle */    
         	if(ball.getY() + BALL_RADIUS*2  <= paddle.getY() +vy ) {
         		 this.vy = - vy;
+        		 bounceOffPaddleX();
                 }
         }
         /** In this case the collider would be a brick */
@@ -333,7 +340,7 @@ public class Breakout extends GraphicsProgram {
     
     
     /** Method that updates the score, under the paddle */
-    	private void createScore() {
+    private void createScore() {
     		/** Sets score to zero, since game has not started */
     		scoreCounter = 0;
     		score = new GLabel("" + scoreCounter);
@@ -374,7 +381,14 @@ public class Breakout extends GraphicsProgram {
     		/** Setting the new label x, due to the label size increasing if the score goes up */
     		score.setLocation(paddle.getX() + (PADDLE_WIDTH/2) - (score.getWidth()/2), paddle.getY() + PADDLE_HEIGHT + 15);
     	}
-    
+    /** Method that resets paddle and ball */
+    private void resetBallAndPaddle() {
+    	 this.ball.setLocation((WIDTH / 2) - BALL_RADIUS, (HEIGHT / 2) - BALL_RADIUS);
+    	 this.paddle.setLocation(WIDTH / 2 - PADDLE_WIDTH / 2, HEIGHT - PADDLE_HEIGHT - PADDLE_Y_OFFSET);
+    	 this.lastX = WIDTH/2;
+    	 this.score.setLocation(WIDTH/2 - score.getWidth()/2, paddle.getY() + PADDLE_HEIGHT + 15);
+    }
+    	
     
     /** Displays the winning GLabel if player wins */
     private void playerWon() {
