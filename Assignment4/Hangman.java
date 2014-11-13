@@ -12,6 +12,9 @@ import java.awt.*;
 
 public class Hangman extends ConsoleProgram {
 	private static final int MAX_TURNS = 8;
+	private static final int APPLICATION_WIDTH = 600;
+	private static final int APPLICATION_HEIGHT = 500;
+	
     public void run() {
     	setUpGame();
     	playHangman();
@@ -25,10 +28,12 @@ public class Hangman extends ConsoleProgram {
     	/** Setting the guessCount to 8, so that the user can start of with max turns */
     	this.guessCount = MAX_TURNS;
     	/**Set the window size to the size we want, then pause it for 1 second */
-    	setSize(600, 500);
+    	setSize(APPLICATION_WIDTH, APPLICATION_HEIGHT);
     	pause(1000);
     	println("Welcome to Hangman!");
+    	this.allGuessedLetters = "";
     	canvas.reset();
+    	
     }
     
     /** This method chooses a random word that the player will have to guess
@@ -76,6 +81,11 @@ public class Hangman extends ConsoleProgram {
     			if(!isValidString(guess)) {
     				println("That guess is invalid! Only one letter guesses are allowed!");
     			}
+    			/** IF the player already guessed the letter, tell them they already guessed, and make them guess again */
+    			/** Temporarily make the guess upper case, so that it can be found in the all upper case String */
+    			else if(this.allGuessedLetters.indexOf(guess.toUpperCase()) != -1) {
+    				println("You already guessed that letter! Guess again!");
+    			}
     			/** If guess if allowed, break out of the loop */
     			else {
     				/** Assigns the letterGuessed variable to an upper case version of the letter guess, if not upper case already */
@@ -83,6 +93,8 @@ public class Hangman extends ConsoleProgram {
     				break;
     			}
     		}
+    		/** Adds the letter to a list of guessed letters, so users cannot reguess it */
+    		this.allGuessedLetters += letterGuessed;
     		/** If the letter is in the word, replace the dashedString, and add the letters, into it */
     		if(checkLetterInString(this.word, this.letterGuessed)) {
     			this.dashedWord = addLetterToString(this.word, this.letterGuessed);
@@ -175,4 +187,6 @@ public class Hangman extends ConsoleProgram {
     private String letterGuessed;
     /** The canvas to call in between methods */
     private HangmanCanvas canvas;
+    /** A string containing all letters guess */
+    private String allGuessedLetters;
 }
