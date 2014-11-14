@@ -12,8 +12,8 @@ import java.awt.*;
 
 public class Hangman extends ConsoleProgram {
 	private static final int MAX_TURNS = 8;
-	private static final int APPLICATION_WIDTH = 600;
-	private static final int APPLICATION_HEIGHT = 500;
+	private static final int APPLICATION_WIDTH = 800;
+	private static final int APPLICATION_HEIGHT = 700;
 	
     public void run() {
     	setUpGame();
@@ -33,7 +33,8 @@ public class Hangman extends ConsoleProgram {
     	println("Welcome to Hangman!");
     	this.allGuessedLetters = "";
     	canvas.reset();
-    	
+    	/** Set the word on the canvas to the dashedWord */
+    	canvas.displayWord(dashedWord);
     }
     
     /** This method chooses a random word that the player will have to guess
@@ -99,6 +100,8 @@ public class Hangman extends ConsoleProgram {
     		if(checkLetterInString(this.word, this.letterGuessed)) {
     			this.dashedWord = addLetterToString(this.word, this.letterGuessed);
     			println("That guess is correct.");
+    			/** Update the word on the canvas */
+    			canvas.displayWord(dashedWord);
     			/** If the player has guessed the word, the player wins and the loop breaks */
     			if(word.equals(dashedWord)) {
     				println("You win!");
@@ -110,6 +113,8 @@ public class Hangman extends ConsoleProgram {
     		else {
     			println("There are no " + letterGuessed + "'s in the word");
     			println("That guess is incorrect.");
+    			/** On the String with incorrect guesses on the canvas, add the letter to it */
+    			canvas.noteIncorrectGuess(letterGuessed.charAt(0));
     			this.guessCount--;
     		}
     	}
