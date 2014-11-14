@@ -23,7 +23,7 @@ public class HangmanCanvas extends GCanvas {
 		/** Set the top of the label 1 and a half head diameters away from the footY */
 		int y = getHeight()/2 + LEG_LENGTH + HEAD_RADIUS*3;
 		GLabel stateOfWord = new GLabel(word, x, y);
-		stateOfWord.setFont("Calibri-48");
+		stateOfWord.setFont("Calibri-36");
 		if(getElementAt(x, y) != null) {
 			remove(getElementAt(x,y));
 		}
