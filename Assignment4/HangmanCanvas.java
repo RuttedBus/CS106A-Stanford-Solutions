@@ -43,7 +43,7 @@ public class HangmanCanvas extends GCanvas {
 		/** Set the top of the label 1 and a half head diameters away from the foot */
 		int y = getHeight()/2 + LEG_LENGTH + HEAD_RADIUS*4;
 		GLabel incorrectLetters = new GLabel(wrongGuessedLetters, x, y);
-		incorrectLetters.setFont("Calibri-12");
+		incorrectLetters.setFont("Calibri-24");
 		/** If the label is already on the screen, remove it and add the new one */
 		if(getElementAt(x,y) != null) {
 			remove(getElementAt(x,y));
@@ -55,7 +55,7 @@ public class HangmanCanvas extends GCanvas {
 		case 2: drawBody(); break;
 		case 3: drawLeftArm(); break;
 		case 4: drawRightArm(); break;
-		case 5: drawHip(); drawLeftLeg(); break;
+		case 5: drawLeftLeg(); break;
 		case 6: drawRightLeg(); break;
 		case 7: drawLeftFoot(); break;
 		case 8: drawRightFoot(); break;
@@ -127,7 +127,7 @@ public class HangmanCanvas extends GCanvas {
 		/** Set the other side of the arm to be on the body */
 		int armXRight = armXLeft + UPPER_ARM_LENGTH;
 		/** Set where the armY is head radius from the middle of the body*/
-		int armY = getHeight()/2 - HEAD_RADIUS - BODY_LENGTH/2;
+		int armY = getHeight()/2 - BODY_LENGTH/2 - ARM_OFFSET_FROM_HEAD;
 		GLine arm = new GLine(armXLeft, armY, armXRight, armY);
 		add(arm);
 		/** Set the x of the hand where the left side of the arm is */
@@ -146,7 +146,7 @@ public class HangmanCanvas extends GCanvas {
 		/** Set the other side of the arm to be on the body */
 		int armXLeft = armXRight - UPPER_ARM_LENGTH;
 		/** Set where the armY is head radius from the middle of the body*/
-		int armY = getHeight()/2 - HEAD_RADIUS - BODY_LENGTH/2;
+		int armY = getHeight()/2 - BODY_LENGTH/2 - ARM_OFFSET_FROM_HEAD;
 		GLine arm = new GLine(armXRight, armY, armXLeft, armY);
 		add(arm);
 		/** Set the x of the hand where the right side of the arm is */
@@ -158,43 +158,49 @@ public class HangmanCanvas extends GCanvas {
 		GLine hand = new GLine(handX, handTopY, handX, handBottomY);
 		add(hand);
 	}
-	/** This method draws the hip */
-	private void drawHip() {
-		/** Setting the middle of the hip in the middle of the screen */
-		int hipXLeft = getWidth()/2 - HIP_WIDTH/2;
-		/** Set the right side of the hip hip width pixels away from the left */
-		int hipXRight = hipXLeft + HIP_WIDTH;
-		/** Set the hip y in the middle of the screen's height */
-		int hipY= getHeight()/2;
-		GLine hip = new GLine(hipXLeft, hipY, hipXRight, hipY);
-		add(hip);
-	}
+	
 	/** This method draws the left leg */
 	private void drawLeftLeg() {
 		/** Setting the x of the left leg to the left side of the hip */
-		int legX = getWidth()/2 - HIP_WIDTH/2;
+		int legX = getWidth()/2 - HIP_WIDTH;
 		/** Setting the top of the leg to where the the middle of height is, also where the hipY is */
 		int topY = getHeight()/2;
 		/** Setting the bottom of the leg leg length pixels away from the top */
 		int bottomY = topY + LEG_LENGTH;
 		GLine leftLeg = new GLine(legX, topY, legX, bottomY);
 		add(leftLeg);
+		/** Setting the hip where the bottom of the leg is */
+		int hipY = topY;
+		/** Setting the hip to where the leg begins */
+		int hipXLeft = legX;
+		/** Setting the right side of the hip hip width away from the left side */
+		int hipXRight = hipXLeft + HIP_WIDTH;
+		GLine hip = new GLine(hipXLeft, hipY, hipXRight, hipY);
+		add(hip);
 	}
 	/** This method draws the right leg */
 	private void drawRightLeg() {
 		/** Setting the x of the right leg to the right side of the hip */
-		int legX = getWidth()/2 + HIP_WIDTH/2;
+		int legX = getWidth()/2 + HIP_WIDTH;
 		/** Setting the top of the leg to where the the middle of height is, also where the hipY is */
 		int topY = getHeight()/2;
 		/** Setting the bottom of the leg leg length pixels away from the top */
 		int bottomY = topY + LEG_LENGTH;
 		GLine rightLeg = new GLine(legX, topY, legX, bottomY);
 		add(rightLeg);
+		/** Setting the hip where the bottom of the leg is */
+		int hipY = topY;
+		/** Setting the hip to where the leg begins */
+		int hipXRight = legX;
+		/** Setting the left side of the hip hip width away from the right side */
+		int hipXLeft = hipXRight - HIP_WIDTH;
+		GLine hip = new GLine(hipXLeft, hipY, hipXRight, hipY);
+		add(hip);
 	}
 	/** This method draws the left foot */
 	private void drawLeftFoot() {
 		/** First set the left side of foot to where the legX is, then subtract the length of the foot */
-		int footXLeft = getWidth()/2 - HIP_WIDTH/2 - FOOT_LENGTH;
+		int footXLeft = getWidth()/2 - HIP_WIDTH - FOOT_LENGTH;
 		/** Set the right side of left foot leg_length pixels away from the left side of the foot */
 		int footXRight = footXLeft + FOOT_LENGTH;
 		/** Set the y of the foot where the leg is */
@@ -205,7 +211,7 @@ public class HangmanCanvas extends GCanvas {
 	/** This method draws the right foot */
 	private void drawRightFoot() {
 		/** First set the left side of foot to where the legX is */
-		int footXLeft = getWidth()/2 + HIP_WIDTH/2;
+		int footXLeft = getWidth()/2 + HIP_WIDTH;
 		/** Set the right side of right foot leg_length pixels away from the left side of the foot */
 		int footXRight = footXLeft + FOOT_LENGTH;
 		/** Set the y of the foot where the leg is */
@@ -224,7 +230,7 @@ public class HangmanCanvas extends GCanvas {
 	private static final int ARM_OFFSET_FROM_HEAD = 28;
 	private static final int UPPER_ARM_LENGTH = 72;
 	private static final int LOWER_ARM_LENGTH = 44;
-	private static final int HIP_WIDTH = 72;
+	private static final int HIP_WIDTH = 36;
 	private static final int LEG_LENGTH = 108;
 	private static final int FOOT_LENGTH = 28;
 
