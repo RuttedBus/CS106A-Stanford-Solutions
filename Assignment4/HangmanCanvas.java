@@ -10,6 +10,10 @@ public class HangmanCanvas extends GCanvas {
 
 /** Resets the display so that only the scaffold appears */
 	public void reset() {
+		if(scaffoldCreated) {
+			removeAll();
+			this.wrongGuessedLetters = "";
+		}
 		drawScaffold();
 	}
 /**
@@ -66,6 +70,7 @@ public class HangmanCanvas extends GCanvas {
 		drawHangingStick();
 		drawBeam();
 		drawRope();
+		scaffoldCreated = true;
 	}
 	/** This method draws the stick from which the man hangs */ 
 	private void drawHangingStick() {
@@ -233,5 +238,6 @@ public class HangmanCanvas extends GCanvas {
 	private static final int HIP_WIDTH = 36;
 	private static final int LEG_LENGTH = 108;
 	private static final int FOOT_LENGTH = 28;
+	private boolean scaffoldCreated;
 
 }
