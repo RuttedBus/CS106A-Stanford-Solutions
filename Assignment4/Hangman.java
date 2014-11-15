@@ -16,9 +16,41 @@ public class Hangman extends ConsoleProgram {
 	private static final int APPLICATION_HEIGHT = 700;
 	
     public void run() {
+    	/** While this loop runs, the setup and game play */
+    	while(true) {
     	setUpGame();
     	playHangman();
-	}
+    	/** Loop to get the users input */
+    	while (true) {
+    	String yesOrNo = readLine("Enter yes or no to play again.");
+   
+    		/** If the users input is not yes or no, make them retype it */
+    		if(!(yesOrNo.equalsIgnoreCase("Yes") || yesOrNo.equalsIgnoreCase("No"))) {
+    			println("You must enter yes or no.");
+    		}
+    		/** If the users input is yes,  playAgain is true, and the user input loop exits */
+    		else if(yesOrNo.equalsIgnoreCase("Yes")) {
+    			this.playAgain = true;
+    			break;
+    		}
+    		/** If user enters no, the playAgain loop is false, and user input loop exits */
+    		else if(yesOrNo.equalsIgnoreCase("No")){
+    			this.playAgain = false;
+    			break;
+    			}
+    		}
+    	/** If the playAgain is false, which means the user no longer wants to play, exit the loop of the program. 
+    	 * Else, continue to play the game.
+    	 */
+    	if(!playAgain) {
+    		break;
+    		}
+    	else {
+    		println("---------------");
+    		println("---------------");
+    		}
+    	}
+    }
     /** Method that sets up the beginning of the game */
     private void setUpGame() {
     	/** Choosing a random word */
@@ -194,4 +226,6 @@ public class Hangman extends ConsoleProgram {
     private HangmanCanvas canvas;
     /** A string containing all letters guess */
     private String allGuessedLetters;
+    /** Boolean for yes or no to whether or not the player wants to replay */
+    private boolean playAgain;
 }
