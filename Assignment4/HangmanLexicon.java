@@ -10,15 +10,18 @@ import java.util.*;
 import java.io.*;
 public class HangmanLexicon {
 	
+	/** An array list of all the words */
 	ArrayList<String> lexicon = new ArrayList<String>();
 	public HangmanLexicon() {
 	try {
 		BufferedReader rd = new BufferedReader(new FileReader("HangmanLexicon.txt"));
 		while(true) {
 			String word = rd.readLine();
+			/** If the line being read has nothing, break out of the loop */
 			if(word == null) {
 				break;
 			}
+			/** Add the line if the line contains something */
 			lexicon.add(word);
 		}
 		rd.close();
