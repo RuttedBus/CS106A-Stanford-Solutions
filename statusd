@@ -1,0 +1,192 @@
+[33mcommit 2020993ed1f0eae94febc20978a5a962e17dbd88[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Sat Nov 15 15:31:38 2014 -0600
+
+    Update README.md
+
+[33mcommit 00a57495ae8233f7d73b390ef6d84c01d962dbe9[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Fri Nov 14 23:46:20 2014 -0600
+
+    Added comments to hangman lexicon
+    
+    Comments added
+
+[33mcommit c7636eb2a8e1aa7b4993f64f0708360cbeb5490a[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Fri Nov 14 23:14:16 2014 -0600
+
+    Made restart better for graphics
+    
+    Same as the title
+
+[33mcommit cd41b16241375300749d9a71fee3b3e8f10662da[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Fri Nov 14 23:12:41 2014 -0600
+
+    Added restart for the game.
+    
+    Prints
+    ---------------
+    ---------------
+    No leaves the game unchanged, but player cannot do anything.
+
+[33mcommit c45f364a30acd0988ddd2fb65250368be9833a61[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Fri Nov 14 20:30:26 2014 -0600
+
+    Added new words using ArrayList, updated Graphics
+    
+    All the words in the text file have been added to the game, and graphics
+    have been updated to be cleaner.
+
+[33mcommit 916e8035a81db2a10e0d8ffbd2bca301801e8c8f[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Fri Nov 14 13:15:49 2014 -0600
+
+    Changed displayWord font size
+    
+    Font size for displayWrod has been changed to 36, instead of 48.
+
+[33mcommit 409177cf67fc56ce899ff857df7081da38173592[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Thu Nov 13 21:19:06 2014 -0600
+
+    Added Graphics to the game
+    
+    Graphics are now added!
+    Changed some constants to what I prefer.
+
+[33mcommit 75656730336772b518cd00dee2148c762e48c16b[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Thu Nov 13 16:46:34 2014 -0600
+
+    Better games, new changes
+    
+    Player can no longer guess the same letter.
+    Window is bigger in height and width.
+
+[33mcommit 90cb93f059d055717aa85893e38d8a8b29177e68[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 12 19:59:03 2014 -0600
+
+    Fixed Name
+    
+    Name is fixed
+
+[33mcommit 5db81c2e3d28703da753e5123e2b21650f331a1b[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 12 19:53:15 2014 -0600
+
+    Added unfinished project
+    
+    The only thing that works right now is the console version of Hangman,
+    with the project being updated later on.
+
+[33mcommit e5ff80fb350d9bff3f3a7827d7859e1cfe7bcf9a[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Sat Nov 8 10:21:14 2014 -0600
+
+    Added Assigment2 Solutions
+    
+    The solutions for Assignment2 have been added.
+
+[33mcommit fc3905f81b90d86e359667a0a61eda1a40d8cd8b[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 21:58:52 2014 -0600
+
+    Adding status message showing remaining turns at bottom
+    
+    Message added at bottom
+
+[33mcommit f7764f50d49756d0136eb534be3eb5cc65e358f2[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 21:24:18 2014 -0600
+
+    Adding a new physic for bouncing off the paddle
+    
+    Same as title
+
+[33mcommit e4bf9ef3aef569ea54a62b2aab033427cd3496c8[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 19:09:24 2014 -0600
+
+    Removing files
+    
+    Files removed?
+
+[33mcommit 3ff99b14d736d84bc17d011531c7706a6da20d6e[m
+Author: RuttedBus62940 <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 19:01:16 2014 -0600
+
+    Delete bounce.au
+
+[33mcommit 63b1c22f24aee27bcd68c9cf67312110a8b49b1e[m
+Author: RuttedBus62940 <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 19:00:47 2014 -0600
+
+    Delete .project
+
+[33mcommit 657e8cf25975aab7bff193370e1c6ad29ac031e3[m
+Author: RuttedBus62940 <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 19:00:03 2014 -0600
+
+    Delete Assignment3.iml
+
+[33mcommit fbf6255c3b17eaf12e602106e8e887ac66ed4606[m
+Author: RuttedBus62940 <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 18:59:54 2014 -0600
+
+    Delete .classpath
+
+[33mcommit 928c60d440aee3f2c254a491a3c9110145c28661[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 18:59:10 2014 -0600
+
+    Revert "Revert "added Assignment3""
+    
+    This reverts commit c8947bd8479c87e2473887f43234578b6281dcf3.
+
+[33mcommit c8947bd8479c87e2473887f43234578b6281dcf3[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 18:56:50 2014 -0600
+
+    Revert "added Assignment3"
+    
+    This reverts commit 9bdf94ef7e383106f1f2cdfc51cabe268751f551.
+
+[33mcommit 9bdf94ef7e383106f1f2cdfc51cabe268751f551[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 18:55:12 2014 -0600
+
+    added Assignment3
+
+[33mcommit ffcf43975a714871fb9ef4269d34d00a0e1d0cae[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Mon Nov 3 20:54:44 2014 -0600
+
+    Revert "Revert ":boom::camel: Added .gitattributes & .gitignore files""
+    
+    This reverts commit 175efc3e022f691813eaf03d26663c105a92d1ba.
+
+[33mcommit 91e57d60e1f65c460cd425420173136bf9a8012d[m
+Author: RuttedBus62940 <josue_lopez@prodigy.net>
+Date:   Wed Nov 5 18:22:09 2014 -0600
+
+    Create README.md
+    
+    Feel free to test out this code if you want. Do not, however, attempt to claim this as your own.
+
+[33mcommit 175efc3e022f691813eaf03d26663c105a92d1ba[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Mon Nov 3 20:38:32 2014 -0600
+
+    Revert ":boom::camel: Added .gitattributes & .gitignore files"
+    
+    This reverts commit c6a7a3e1dadb772eecd74e7480993ee50029e14c.
+
+[33mcommit c6a7a3e1dadb772eecd74e7480993ee50029e14c[m
+Author: Josue Lopez <josue_lopez@prodigy.net>
+Date:   Mon Nov 3 20:35:24 2014 -0600
+
+    :boom::camel: Added .gitattributes & .gitignore files
