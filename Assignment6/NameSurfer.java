@@ -1,4 +1,4 @@
-/*
+/*/*
  * File: NameSurfer.java
  * ---------------------
  * When it is finished, this program will implements the viewer for
@@ -9,7 +9,7 @@ import acm.program.*;
 import java.awt.event.*;
 import javax.swing.*;
  
-public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
+public class NameSurfer extends Program implements NameSurferConstants {
  
 /* Method: init() */
 /**
@@ -49,11 +49,18 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 			NameSurferEntry entry = nameDB.findEntry(name);
 			//If entry exists in database, print it's toString
 			if(entry != null) {
-				println(entry.toString());
+				nameGraph.addEntry(entry);
+				nameGraph.update();
 			}
 		}
 		else if(e.getSource() == clear) {
-			println("Clear");
+			nameGraph.clear();
+		}
+		else if(e.getSource() == delete) {
+			String name = nameField.getText();
+			NameSurferEntry entry = nameDB.findEntry(name);
+			nameGraph.deleteEntry(entry);
+			nameGraph.update();
 		}
 	}
 	
@@ -61,12 +68,15 @@ public class NameSurfer extends ConsoleProgram implements NameSurferConstants {
 	public void initButtons() {
 		graph = new JButton("Graph");
 		add(graph, SOUTH);
+		delete = new JButton("Delete");
+		add(delete, SOUTH);
 		clear = new JButton("Clear");
 		add(clear, SOUTH);
 	}
 	private JTextField nameField;
 	private JButton graph;
 	private JButton clear;
+	private JButton delete;
 	private NameSurferGraph nameGraph;
 	private NameSurferDataBase nameDB;
-}
+} 
