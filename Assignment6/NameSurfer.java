@@ -59,8 +59,10 @@ public class NameSurfer extends Program implements NameSurferConstants {
 		else if(e.getSource() == delete) {
 			String name = nameField.getText();
 			NameSurferEntry entry = nameDB.findEntry(name);
+			if(entry != null) {
 			nameGraph.deleteEntry(entry);
 			nameGraph.update();
+			}
 		}
 	}
 	
