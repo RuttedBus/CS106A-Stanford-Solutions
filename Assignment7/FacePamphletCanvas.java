@@ -99,6 +99,7 @@ public class FacePamphletCanvas extends GCanvas
 		else {
 			double x = LEFT_MARGIN;
 			double y = TOP_MARGIN + IMAGE_MARGIN + nameH;
+			image.setSize(IMAGE_WIDTH, IMAGE_HEIGHT);
 			add(image, x, y);
 		}
 	}

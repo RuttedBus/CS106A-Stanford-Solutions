@@ -124,11 +124,17 @@ public class FacePamphlet extends Program
 				if(faceDB.containsProfile(friendName)) {
 					//Get the friends profile
 					FacePamphletProfile friendProfile = faceDB.getProfile(friendName);
-					//Add friend to current profile, and add current profile as a friend to the friendProfile
-					currentProfile.addFriend(friendName);
-					friendProfile.addFriend(currentProfile.getName());
-					faceCanvas.displayProfile(currentProfile);
-					faceCanvas.showMessage(friendName + " added as a friend");
+					//Check if user is trying to add themselves
+					if(!friendName.equals(currentProfile.getName())) {
+						//Add friend to current profile, and add current profile as a friend to the friendProfile
+						currentProfile.addFriend(friendName);
+						friendProfile.addFriend(currentProfile.getName());
+						faceCanvas.displayProfile(currentProfile);
+						faceCanvas.showMessage(friendName + " added as a friend");
+					}
+					else {
+						faceCanvas.showMessage("Cannot add yourself as a friend");
+					}
 				}
 				else {
 					faceCanvas.showMessage("A profile with the name " + friendName + " does not exist");
@@ -207,6 +213,3 @@ public class FacePamphlet extends Program
     private FacePamphletCanvas faceCanvas;
     private FacePamphletProfile currentProfile;
 }
-
-	
-	
